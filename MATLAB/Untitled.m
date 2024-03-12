@@ -1,0 +1,11 @@
+clear;
+X=linspace(-2*pi, 2*pi, 200);
+f = inline('sin(x)-cos(x)', 'x');
+df = inline('cos(x)+sin(x)', 'x');
+plot(X, f(X));
+grid on;
+
+tol = 1e-5;
+x0 = 3;
+
+x1 = newton(f, df, x0, tol);
